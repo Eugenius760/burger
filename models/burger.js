@@ -7,13 +7,13 @@ var burger = {
     });
   },
 
-  insertOne: function (cols, vals, cb) {
-    orm.insertOne("burgers", cols, vals, function (res) {
+  insertOne: function (burger_name, devoured, cb) {
+    orm.insertOne("burgers", burger_name, devoured, function (res) {
       cb(res);
     });
   },
-  updateOne: function (objColVals, condititon, cb) {
-    orm.updateOne("burgers", objColVals, condititon, function (res) {
+  updateOne: function (devoured, id, cb) {
+    orm.updateOne("burgers", devoured, id, function (res) {
       cb(res);
     });
   },
