@@ -1,17 +1,46 @@
 <h1>
   Devour It!
 </h1>
+<div class="container">
+  <ul>
+    {{#each burgers}}
+      {{#unless devoured}}
+        <li>
+          {{burger_name}}
+          <button
+            class="change-devoured"
+            data-id="{{id}}"
+            data-newDevour="{{devoured}}"
+          >
+            {{#if devoured}}
+              Give me more!!!
+            {{else}}
+              Devour it!
+            {{/if}}
+          </button>
+        </li>
+        {{!-- {{> burgers/burger-block devored=true}} --}}
+      {{/unless}}
+    {{/each}}
+  </ul>
+</div>
 <ul>
   {{#each burgers}}
-    {{#unless devored}}
-      {{burgers/burger-block devored=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
-<ul>
-  {{#each burgers}}
-    {{#if devored}}
-      {{burgers/burger-block devored=false}}
+    {{#if devoured}}
+      <li>
+        {{burger_name}}
+        <button
+          class="change-devoured"
+          data-id="{{id}}"
+          data-newDevour="{{devoured}}"
+        >
+          {{#if devoured}}
+            Give me more!!!
+          {{else}}
+            Devour it!
+          {{/if}}
+        </button>
+      </li>
     {{/if}}
   {{/each}}
 </ul>
