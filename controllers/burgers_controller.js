@@ -4,16 +4,16 @@ var burger = require("../models/burger.js");
 
 router.get("/", function (req, res) {
   burger.selectAll(function (data) {
-    var hbsObject = {
+    var burgersObject = {
       burgers: data,
     };
-    console.log(hbsObject);
-    res.render("index", hbsObject);
+    console.log(burgersObject);
+    res.render("index", burgersObject);
   });
 });
 
 router.post("/api/burgers", function (req, res) {
-  burger.insertOne(req.body.burger_name, req.body.devoured, function (result) {
+  burger.insertOne(req.body.name, req.body.devoured, function (result) {
     res.json({ id: result.insertID });
   });
 });

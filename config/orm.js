@@ -11,7 +11,7 @@ var orm = {
 
   insertOne: function (table, burger_name, devoured, cb) {
     var queryString =
-      "INSERT INTO " + table + "(burger_name, devoured), VALUES (?.?)";
+      "INSERT INTO " + table + "(burger_name, devoured) VALUES (?,?)";
     connection.query(queryString, [burger_name, devoured], function (
       err,
       result
